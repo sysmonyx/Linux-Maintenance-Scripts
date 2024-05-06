@@ -13,7 +13,7 @@
 ################################################################################################################################
 #   Description:    This script updates, repairs & cleans DNF & Flatpak packages on a Fedora system.
 #
-#   Last Updated:   09.04.2024
+#   Last Updated:   06.05.2024
 ################################################################################################################################
 #!/bin/bash
 
@@ -77,6 +77,10 @@ sudo remove-retired-packages
 # Clean old unused packages.
 echo "Cleaning up old & unused packages . . . ."
 sudo dnf -y autoremove
+
+# Clean old Kernels.
+echo "Cleaning up old Kernels . . . ."
+sudo dnf remove --oldinstallonly -y
 
 # Clean all cached package data.
 echo "Cleaning up all Cached package data . . . ."
